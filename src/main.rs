@@ -26,7 +26,16 @@ pub fn main() {
             match event {
                 Event::Quit { .. } |
                 Event::KeyDown { keycode: Some(Keycode::Escape), .. } => break 'running,
-                //Event::KeyDown { key}
+                Event::KeyDown { keycode: Some(Keycode::G), .. } => {
+                    canvas.set_draw_color(Color::RGB(0,128, 0));
+                    canvas.clear();
+                    canvas.present();
+                },
+                Event::KeyDown { keycode: Some(Keycode::R), .. } => {
+                    canvas.set_draw_color(Color::RGB(255,0, 0));
+                    canvas.clear();
+                    canvas.present();
+                },
                 _ => ()
             }
         }
