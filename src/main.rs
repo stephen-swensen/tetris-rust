@@ -14,7 +14,7 @@ pub fn main() {
         .build()
         .expect("Failed to create window");
 
-    let mut canvas = window.into_canvas().build().expect("FAiled to convert window into canvas");
+    let mut canvas = window.into_canvas().build().expect("Failed to convert window into canvas");
 
     canvas.set_draw_color(Color::RGB(255, 0, 0));
     canvas.clear();
@@ -24,6 +24,7 @@ pub fn main() {
     'running: loop {
         for event in event_pump.poll_iter() {
             match event {
+                Event::KeyDown { keycode: Some(Keycode::Q), .. } |
                 Event::Quit { .. } |
                 Event::KeyDown { keycode: Some(Keycode::Escape), .. } => break 'running,
                 Event::KeyDown { keycode: Some(Keycode::G), .. } => {
